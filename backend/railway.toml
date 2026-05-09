@@ -1,0 +1,11 @@
+# Railway build & deploy configuration
+[build]
+builder = "nixpacks"
+buildCommand = "npm install"
+
+[deploy]
+startCommand = "node server.js"
+restartPolicyType = "always"
+restartPolicyMaxRetries = 10
+healthcheckPath = "/"
+healthcheckTimeout = 30
