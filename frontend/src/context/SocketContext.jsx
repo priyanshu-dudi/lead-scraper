@@ -8,7 +8,8 @@ export function SocketProvider({ children }) {
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {
-    const s = io('http://localhost:3001', {
+    const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+    const s = io(backendUrl, {
       reconnection: true,
       reconnectionAttempts: Infinity,
       reconnectionDelay: 1000,

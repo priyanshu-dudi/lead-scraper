@@ -1,89 +1,138 @@
-# 🏋️ LeadForge — Gym & Fitness India (Railway Deploy)
+# 🚀 LeadForge — Deploy to Railway via CLI (No GitHub needed)
 
 ## What gets scraped
 - **Niches**: Gym, Fitness Center, CrossFit, Yoga, Zumba, Pilates, Martial Arts, Boxing, Personal Trainer, Aerobics, Weight Loss, Health Club, Swimming Pool
-- **Sequence**: Rajasthan first → Delhi/NCR → Mumbai/Pune → Bangalore → Chennai → Hyderabad → Kerala
-- **Per city**: JustDial, Sulekha, IndiaMart, YellowPages India + Bing/DuckDuckGo queries
-- **Per pincode**: 5 pin codes per city scraped individually for hyper-local results
-- **Saves**: `leads.csv` every 60 seconds — download at `/leads.csv`
+- **Sequence**: Rajasthan → Delhi → Maharashtra
+- **Per city**: JustDial, Sulekha, IndiaMart, YellowPages India + Bing/DuckDuckGo
+- **Per pincode**: 5 pin codes per city for hyper-local results
+- **Auto-saves**: `leads.csv` every 60 seconds → download at `/leads.csv`
 
 ---
 
-## Step 1 — Push to GitHub
+## Step 1 — Install Railway CLI
+
+Open PowerShell and run:
+
+```powershell
+npm install -g @railway/cli
+```
+
+Verify it works:
+```powershell
+railway --version
+```
+
+---
+
+## Step 2 — Login to Railway
+
+```powershell
+railway login
+```
+
+This opens your browser → sign in with Google/Email → done. **No GitHub connection needed.**
+
+---
+
+## Step 3 — Create a new Railway project
 
 ```powershell
 cd "C:\Users\dudi8\OneDrive\Desktop\leads\backend"
-git add .
-git commit -m "Gym fitness India scraper"
-git remote add origin https://github.com/YOUR_USERNAME/leadforge-gym.git
-git push -u origin main
+railway init
 ```
 
-## Step 2 — Deploy on Railway
+When prompted:
+- **Project name**: `leadforge-gym`
+- **Environment**: `production`
 
-1. Go to **https://railway.app** → New Project → Deploy from GitHub
-2. Select your repo → set **Root Directory**: `/backend`
+---
 
-## Step 3 — Railway Environment Variables
+## Step 4 — Set Environment Variables
 
-Set these in Railway → your service → **Variables** tab:
+Copy and run each line (replace the API key with yours):
+
+```powershell
+railway variables set OPENAI_API_KEY="sk-proj-your-key-here"
+railway variables set AUTO_START="true"
+railway variables set PLAYWRIGHT_ENABLED="false"
+railway variables set SCRAPE_COUNTRY="India"
+railway variables set SCRAPE_STATES="Rajasthan,Delhi,Maharashtra"
+railway variables set SCRAPE_CITIES="Jaipur,Udaipur,Jodhpur,Ajmer,Kota,Bikaner,Alwar,Bhilwara,Sikar,Chittorgarh,Bharatpur,New Delhi,Dwarka,Rohini,Pitampura,Janakpuri,Saket,Vasant Kunj,Karol Bagh,Punjabi Bagh,Mumbai,Pune,Thane,Navi Mumbai,Nagpur,Nashik,Aurangabad"
+railway variables set SCRAPE_NICHES="gym,fitness center,crossfit,yoga studio,zumba,pilates,martial arts,boxing gym,personal trainer,aerobics,weight loss center,health club,swimming pool"
+railway variables set MAX_CONCURRENCY="8"
+railway variables set CRAWL_DEPTH="3"
+railway variables set USE_AI_EXTRACTION="true"
+railway variables set OPENAI_MODEL="gpt-4o-mini"
+railway variables set NODE_ENV="production"
+```
+
+---
+
+## Step 5 — Deploy
+
+```powershell
+railway up
+```
+
+Railway uploads your local `backend/` folder directly and deploys it. Takes ~2 minutes.
+
+---
+
+## Step 6 — Get your public URL
+
+```powershell
+railway domain
+```
+
+Or open the Railway dashboard:
+```powershell
+railway open
+```
+
+---
+
+## Download Your Leads (anytime)
+
+```powershell
+# Replace with your actual Railway URL
+curl https://leadforge-gym.up.railway.app/leads.csv -o gym_leads.csv
+```
+
+Or just open it in your browser — it downloads automatically.
+
+---
+
+## Monitor Live
+
+```powershell
+# Stream live logs
+railway logs --follow
+```
+
+---
+
+## Re-deploy after code changes
+
+```powershell
+cd "C:\Users\dudi8\OneDrive\Desktop\leads\backend"
+railway up
+```
+
+---
+
+## Environment Variables Reference
 
 | Variable | Value |
 |----------|-------|
-| `OPENAI_API_KEY` | *(paste your key from OpenAI dashboard)* |
+| `OPENAI_API_KEY` | Your OpenAI key |
 | `AUTO_START` | `true` |
 | `PLAYWRIGHT_ENABLED` | `false` |
 | `SCRAPE_COUNTRY` | `India` |
-| `SCRAPE_NICHES` | `gym,fitness center,crossfit,yoga studio,zumba,pilates,martial arts,boxing gym,personal trainer,aerobics,weight loss center,health club,swimming pool` |
 | `SCRAPE_STATES` | `Rajasthan,Delhi,Maharashtra` |
-| `SCRAPE_CITIES` | `Jaipur,Udaipur,Jodhpur,Ajmer,Kota,Bikaner,Alwar,Bhilwara,Sikar,Chittorgarh,Bharatpur,Pali,Sri Ganganagar,New Delhi,Dwarka,Rohini,Pitampura,Janakpuri,Lajpat Nagar,Saket,Vasant Kunj,Karol Bagh,Punjabi Bagh,Shahdara,Mumbai,Pune,Thane,Navi Mumbai,Nagpur,Nashik,Aurangabad` |
+| `SCRAPE_CITIES` | `Jaipur,Udaipur,Jodhpur,Ajmer,Kota,Bikaner,Alwar,Bhilwara,Sikar,Chittorgarh,Bharatpur,New Delhi,Dwarka,Rohini,Pitampura,Janakpuri,Saket,Vasant Kunj,Karol Bagh,Punjabi Bagh,Mumbai,Pune,Thane,Navi Mumbai,Nagpur,Nashik,Aurangabad` |
+| `SCRAPE_NICHES` | `gym,fitness center,crossfit,yoga studio,zumba,pilates,martial arts,boxing gym,personal trainer,aerobics,weight loss center,health club,swimming pool` |
 | `MAX_CONCURRENCY` | `8` |
-| `REQUEST_DELAY_MIN` | `800` |
-| `REQUEST_DELAY_MAX` | `2500` |
 | `CRAWL_DEPTH` | `3` |
 | `USE_AI_EXTRACTION` | `true` |
 | `OPENAI_MODEL` | `gpt-4o-mini` |
 | `NODE_ENV` | `production` |
-| `SCRAPE_COUNTRY` | `India` |
-| `MAX_CONCURRENCY` | `8` |
-| `NODE_ENV` | `production` |
-
-## Step 4 — Monitor & Download
-
-- **Status**: `https://your-app.railway.app/`
-- **Download leads**: `https://your-app.railway.app/leads.csv`
-
-```bash
-# Download CSV from anywhere
-curl https://your-app.railway.app/leads.csv -o gym_leads_india.csv
-```
-
----
-
-## CSV Columns
-
-| Column | Example |
-|--------|---------|
-| Business Name | Gold's Gym Jaipur |
-| Phone | +91-9876543210 |
-| WhatsApp | +919876543210 |
-| Email | info@goldsgymjaipur.com |
-| Website | https://goldsgymjaipur.com |
-| Instagram | https://instagram.com/goldsgymjaipur |
-| Facebook | https://facebook.com/goldsgymjaipur |
-| LinkedIn | https://linkedin.com/company/goldsgym |
-| City | Jaipur |
-| State | Rajasthan |
-| Country | India |
-| PIN Code | 302001 |
-| Lead Score | 85 |
-| Source URL | https://justdial.com/... |
-
----
-
-## How Much Will $5 Get You?
-
-- Railway ~$0.000463/min → **~7 days** of continuous scraping
-- Per city: ~50–500 leads depending on niche density
-- **30 cities × 13 niches × 5 pin codes** = massive coverage
-- Estimated total: **20,000–100,000+ gym/fitness leads**
