@@ -1,0 +1,88 @@
+{
+  "niches": [
+    {
+      "id": "gym",
+      "label": "Gym",
+      "keywords": ["gym", "gymnasium"],
+      "searchTerms": ["gym near me", "gym membership", "fitness gym", "gym contact"]
+    },
+    {
+      "id": "fitness_center",
+      "label": "Fitness Center",
+      "keywords": ["fitness center", "fitness club", "fitness studio"],
+      "searchTerms": ["fitness center contact", "fitness club", "health fitness center"]
+    },
+    {
+      "id": "crossfit",
+      "label": "CrossFit Box",
+      "keywords": ["crossfit", "cross training", "functional fitness"],
+      "searchTerms": ["crossfit box", "crossfit gym", "crossfit classes"]
+    },
+    {
+      "id": "yoga",
+      "label": "Yoga Studio",
+      "keywords": ["yoga studio", "yoga center", "yoga classes", "yoga institute"],
+      "searchTerms": ["yoga studio contact", "yoga center email", "yoga classes near me"]
+    },
+    {
+      "id": "zumba",
+      "label": "Zumba / Dance Fitness",
+      "keywords": ["zumba classes", "zumba studio", "dance fitness"],
+      "searchTerms": ["zumba classes contact", "zumba dance fitness"]
+    },
+    {
+      "id": "pilates",
+      "label": "Pilates Studio",
+      "keywords": ["pilates studio", "pilates center", "pilates classes"],
+      "searchTerms": ["pilates studio contact", "pilates classes email"]
+    },
+    {
+      "id": "martial_arts",
+      "label": "Martial Arts",
+      "keywords": ["martial arts", "karate", "taekwondo", "judo", "mma gym"],
+      "searchTerms": ["martial arts academy contact", "karate classes", "mma gym near me"]
+    },
+    {
+      "id": "boxing",
+      "label": "Boxing Gym",
+      "keywords": ["boxing gym", "boxing club", "boxing academy"],
+      "searchTerms": ["boxing gym contact", "boxing club email phone"]
+    },
+    {
+      "id": "personal_trainer",
+      "label": "Personal Trainer",
+      "keywords": ["personal trainer", "personal training", "fitness trainer", "PT studio"],
+      "searchTerms": ["personal trainer contact", "fitness trainer email phone", "personal training studio"]
+    },
+    {
+      "id": "aerobics",
+      "label": "Aerobics Center",
+      "keywords": ["aerobics center", "aerobics classes", "cardio fitness"],
+      "searchTerms": ["aerobics classes contact", "aerobics center near me"]
+    },
+    {
+      "id": "weight_loss",
+      "label": "Weight Loss Center",
+      "keywords": ["weight loss center", "slimming center", "weight management"],
+      "searchTerms": ["weight loss center contact", "slimming center email phone"]
+    },
+    {
+      "id": "health_club",
+      "label": "Health Club / Spa",
+      "keywords": ["health club", "wellness center", "spa fitness", "recreation club"],
+      "searchTerms": ["health club contact", "wellness center email phone"]
+    },
+    {
+      "id": "swimming",
+      "label": "Swimming Pool / Aquatics",
+      "keywords": ["swimming pool", "aquatic center", "swim academy", "swimming classes"],
+      "searchTerms": ["swimming pool gym contact", "aquatic center email"]
+    },
+    {
+      "id": "sports_academy",
+      "label": "Sports Academy",
+      "keywords": ["sports academy", "sports club", "athletics club"],
+      "searchTerms": ["sports academy contact email phone", "sports club near me"]
+    }
+  ]
+}

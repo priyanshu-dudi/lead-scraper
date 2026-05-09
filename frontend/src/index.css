@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-950 text-slate-100 font-sans antialiased;
+    background-image: 
+      radial-gradient(ellipse at 20% 10%, rgba(14, 165, 233, 0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.07) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.5); }
+  ::-webkit-scrollbar-thumb { 
+    background: rgba(14, 165, 233, 0.4); 
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(14, 165, 233, 0.7); }
+}
+
+@layer components {
+  /* ── Glass Card ──────────────────────────────────────────── */
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.07] rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    @apply border-brand-500/30;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(14, 165, 233, 0.1), inset 0 1px 0 rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+  }
+
+  /* ── Stat Card ───────────────────────────────────────────── */
+  .stat-card {
+    @apply glass-card p-5 flex flex-col gap-2;
+  }
+
+  /* ── Primary Button ──────────────────────────────────────── */
+  .btn-primary {
+    @apply bg-gradient-to-r from-brand-600 to-brand-500 text-white font-semibold px-5 py-2.5 rounded-xl;
+    @apply hover:from-brand-500 hover:to-brand-400 transition-all duration-200 shadow-lg;
+    @apply active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+  }
+  .btn-primary:hover:not(:disabled) {
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+  }
+
+  /* ── Danger Button ───────────────────────────────────────── */
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-700 to-red-600 text-white font-semibold px-5 py-2.5 rounded-xl;
+    @apply hover:from-red-600 hover:to-red-500 transition-all duration-200 active:scale-95;
+  }
+
+  /* ── Success Button ──────────────────────────────────────── */
+  .btn-success {
+    @apply bg-gradient-to-r from-emerald-700 to-emerald-600 text-white font-semibold px-5 py-2.5 rounded-xl;
+    @apply hover:from-emerald-600 hover:to-emerald-500 transition-all duration-200 active:scale-95;
+  }
+
+  /* ── Ghost Button ────────────────────────────────────────── */
+  .btn-ghost {
+    @apply text-slate-400 hover:text-slate-200 font-medium px-4 py-2 rounded-xl;
+    @apply hover:bg-white/5 transition-all duration-200 active:scale-95;
+  }
+
+  /* ── Input Field ─────────────────────────────────────────── */
+  .input-field {
+    @apply bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-slate-200;
+    @apply focus:outline-none focus:border-brand-500/60 focus:bg-white/[0.08] transition-all duration-200;
+    @apply placeholder:text-slate-500;
+  }
+
+  /* ── Badge ───────────────────────────────────────────────── */
+  .badge {
+    @apply text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+  .badge-blue { @apply badge bg-brand-500/20 text-brand-300 border border-brand-500/30; }
+  .badge-green { @apply badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30; }
+  .badge-yellow { @apply badge bg-yellow-500/20 text-yellow-300 border border-yellow-500/30; }
+  .badge-red { @apply badge bg-red-500/20 text-red-300 border border-red-500/30; }
+  .badge-purple { @apply badge bg-accent-500/20 text-accent-400 border border-accent-500/30; }
+
+  /* ── Score badge ─────────────────────────────────────────── */
+  .score-badge {
+    @apply text-xs font-bold px-2 py-0.5 rounded-full;
+  }
+
+  /* ── Table ───────────────────────────────────────────────── */
+  .lead-table { @apply w-full text-sm; }
+  .lead-table thead { @apply border-b border-white/10; }
+  .lead-table th { @apply text-left py-3 px-4 text-slate-400 font-medium text-xs uppercase tracking-wider; }
+  .lead-table td { @apply py-3 px-4 border-b border-white/5 text-slate-300; }
+  .lead-table tr:hover td { @apply bg-white/[0.02]; }
+
+  /* ── Log entry ───────────────────────────────────────────── */
+  .log-entry { @apply font-mono text-xs py-1 px-2 rounded flex items-start gap-2; }
+  .log-info { @apply text-slate-400; }
+  .log-error { @apply text-red-400 bg-red-500/5; }
+  .log-warn { @apply text-yellow-400 bg-yellow-500/5; }
+  .log-success { @apply text-emerald-400; }
+
+  /* ── Gradient text ───────────────────────────────────────── */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-400 to-accent-400 bg-clip-text text-transparent;
+  }
+
+  /* ── Pulse dot ───────────────────────────────────────────── */
+  .pulse-dot {
+    @apply relative inline-flex h-2.5 w-2.5;
+  }
+  .pulse-dot::before {
+    content: '';
+    @apply absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping;
+  }
+  .pulse-dot::after {
+    content: '';
+    @apply relative inline-flex rounded-full h-2.5 w-2.5;
+  }
+  .pulse-dot.green::before { @apply bg-emerald-400; }
+  .pulse-dot.green::after { @apply bg-emerald-500; }
+  .pulse-dot.blue::before { @apply bg-brand-400; }
+  .pulse-dot.blue::after { @apply bg-brand-500; }
+
+  /* ── Niche Tag ───────────────────────────────────────────── */
+  .niche-tag {
+    @apply px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer transition-all duration-200;
+    @apply border border-transparent;
+  }
+  .niche-tag.selected {
+    @apply bg-brand-500/25 border-brand-500/50 text-brand-300;
+  }
+  .niche-tag:not(.selected) {
+    @apply bg-white/5 text-slate-400 hover:bg-white/10 hover:text-slate-200;
+  }
+}
+
+/* ── Animations ──────────────────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ── Grid pattern background ────────────────────────────────── */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(14, 165, 233, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}

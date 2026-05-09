@@ -1,0 +1,11 @@
+{
+  "name": "leadforge-ultimate",
+  "version": "1.0.0",
+  "description": "AI-Powered Lead Scraping System",
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "start": "node scripts/start-all.js",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev"
+  }
+}

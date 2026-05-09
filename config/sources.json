@@ -1,0 +1,166 @@
+{
+  "sources": [
+    {
+      "id": "justdial",
+      "name": "JustDial",
+      "url": "https://www.justdial.com",
+      "type": "directory",
+      "enabled": true,
+      "engine": "playwright",
+      "priority": 1
+    },
+    {
+      "id": "indiamart",
+      "name": "IndiaMart",
+      "url": "https://www.indiamart.com",
+      "type": "directory",
+      "enabled": true,
+      "engine": "httpx",
+      "priority": 2
+    },
+    {
+      "id": "yellowpages",
+      "name": "Yellow Pages",
+      "url": "https://www.yellowpages.com",
+      "type": "directory",
+      "enabled": true,
+      "engine": "playwright",
+      "priority": 3
+    },
+    {
+      "id": "yelp",
+      "name": "Yelp",
+      "url": "https://www.yelp.com",
+      "type": "directory",
+      "enabled": true,
+      "engine": "playwright",
+      "priority": 4
+    },
+    {
+      "id": "sulekha",
+      "name": "Sulekha",
+      "url": "https://www.sulekha.com",
+      "type": "directory",
+      "enabled": true,
+      "engine": "playwright",
+      "priority": 5
+    },
+    {
+      "id": "google_search",
+      "name": "Google Search",
+      "url": "https://www.google.com",
+      "type": "search",
+      "enabled": true,
+      "engine": "playwright",
+      "priority": 1
+    },
+    {
+      "id": "bing_search",
+      "name": "Bing Search",
+      "url": "https://www.bing.com",
+      "type": "search",
+      "enabled": true,
+      "engine": "httpx",
+      "priority": 2
+    },
+    {
+      "id": "duckduckgo",
+      "name": "DuckDuckGo",
+      "url": "https://duckduckgo.com",
+      "type": "search",
+      "enabled": true,
+      "engine": "httpx",
+      "priority": 3
+    },
+    {
+      "id": "crunchbase",
+      "name": "Crunchbase",
+      "url": "https://www.crunchbase.com",
+      "type": "startup_directory",
+      "enabled": true,
+      "engine": "playwright",
+      "priority": 6
+    },
+    {
+      "id": "producthunt",
+      "name": "Product Hunt",
+      "url": "https://www.producthunt.com",
+      "type": "startup_directory",
+      "enabled": true,
+      "engine": "playwright",
+      "priority": 7
+    },
+    {
+      "id": "clutch",
+      "name": "Clutch.co",
+      "url": "https://clutch.co",
+      "type": "agency_directory",
+      "enabled": true,
+      "engine": "playwright",
+      "priority": 5
+    },
+    {
+      "id": "trustpilot",
+      "name": "Trustpilot",
+      "url": "https://www.trustpilot.com",
+      "type": "review_directory",
+      "enabled": true,
+      "engine": "httpx",
+      "priority": 6
+    },
+    {
+      "id": "linkedin_search",
+      "name": "LinkedIn Company Search",
+      "url": "https://www.linkedin.com",
+      "type": "social",
+      "enabled": true,
+      "engine": "playwright",
+      "priority": 3
+    },
+    {
+      "id": "facebook_places",
+      "name": "Facebook Places",
+      "url": "https://www.facebook.com",
+      "type": "social",
+      "enabled": false,
+      "engine": "playwright",
+      "priority": 8
+    },
+    {
+      "id": "foursquare",
+      "name": "Foursquare",
+      "url": "https://foursquare.com",
+      "type": "directory",
+      "enabled": true,
+      "engine": "httpx",
+      "priority": 7
+    },
+    {
+      "id": "hotfrog",
+      "name": "HotFrog",
+      "url": "https://www.hotfrog.com",
+      "type": "directory",
+      "enabled": true,
+      "engine": "httpx",
+      "priority": 8
+    }
+  ],
+  "contactPagePatterns": [
+    "/contact",
+    "/contact-us",
+    "/contacts",
+    "/get-in-touch",
+    "/reach-us",
+    "/about",
+    "/about-us",
+    "/team",
+    "/our-team",
+    "/footer"
+  ],
+  "sitemapPatterns": [
+    "/sitemap.xml",
+    "/sitemap_index.xml",
+    "/sitemap/",
+    "/robots.txt"
+  ]
+}
