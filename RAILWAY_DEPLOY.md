@@ -30,12 +30,20 @@ Set these in Railway → your service → **Variables** tab:
 
 | Variable | Value |
 |----------|-------|
-| `OPENAI_API_KEY` | `sk-proj-...your key...` |
+| `OPENAI_API_KEY` | *(paste your key from OpenAI dashboard)* |
 | `AUTO_START` | `true` |
 | `PLAYWRIGHT_ENABLED` | `false` |
+| `SCRAPE_COUNTRY` | `India` |
 | `SCRAPE_NICHES` | `gym,fitness center,crossfit,yoga studio,zumba,pilates,martial arts,boxing gym,personal trainer,aerobics,weight loss center,health club,swimming pool` |
-| `SCRAPE_STATES` | `Rajasthan,Delhi,Uttar Pradesh,Maharashtra,Karnataka,Tamil Nadu,Telangana,Andhra Pradesh,Kerala` |
-| `SCRAPE_CITIES` | `Jaipur,Udaipur,Jodhpur,Ajmer,Kota,Bikaner,New Delhi,Noida,Greater Noida,Mumbai,Pune,Thane,Bangalore,Mysore,Chennai,Coimbatore,Madurai,Hyderabad,Visakhapatnam,Vijayawada,Kochi,Thiruvananthapuram` |
+| `SCRAPE_STATES` | `Rajasthan,Delhi,Maharashtra` |
+| `SCRAPE_CITIES` | `Jaipur,Udaipur,Jodhpur,Ajmer,Kota,Bikaner,Alwar,Bhilwara,Sikar,Chittorgarh,Bharatpur,Pali,Sri Ganganagar,New Delhi,Dwarka,Rohini,Pitampura,Janakpuri,Lajpat Nagar,Saket,Vasant Kunj,Karol Bagh,Punjabi Bagh,Shahdara,Mumbai,Pune,Thane,Navi Mumbai,Nagpur,Nashik,Aurangabad` |
+| `MAX_CONCURRENCY` | `8` |
+| `REQUEST_DELAY_MIN` | `800` |
+| `REQUEST_DELAY_MAX` | `2500` |
+| `CRAWL_DEPTH` | `3` |
+| `USE_AI_EXTRACTION` | `true` |
+| `OPENAI_MODEL` | `gpt-4o-mini` |
+| `NODE_ENV` | `production` |
 | `SCRAPE_COUNTRY` | `India` |
 | `MAX_CONCURRENCY` | `8` |
 | `NODE_ENV` | `production` |
