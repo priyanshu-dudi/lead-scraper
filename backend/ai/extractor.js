@@ -33,7 +33,7 @@ Rules:
 - Check footer, header, contact sections, and schema.org markup
 - Return ONLY a JSON array, no extra text
 - If a field is not found, set it to null
-- Return empty array [] if no leads found
+- Return empty array [] if no leads found or if the page looks like an error, captcha, "Access Denied", or "No Results Found" page.
 
 Source URL: {sourceUrl}
 

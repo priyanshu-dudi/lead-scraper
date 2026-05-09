@@ -2,6 +2,7 @@
 // LeadForge Ultimate — HTTPX / Axios Fast HTTP Engine
 // ============================================================
 import axios from 'axios';
+import https from 'https';
 import { parse } from 'node-html-parser';
 import { logger } from '../utils/logger.js';
 import { UserAgentRotator } from '../utils/user-agents.js';
@@ -16,6 +17,9 @@ export class HttpxEngine {
       timeout: parseInt(process.env.REQUEST_TIMEOUT || '30000'),
       maxRedirects: 5,
       validateStatus: (s) => s < 500,
+      httpsAgent: new https.Agent({  
+        rejectUnauthorized: false
+      })
     });
   }
 

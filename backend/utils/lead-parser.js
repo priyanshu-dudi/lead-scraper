@@ -200,6 +200,19 @@ export class LeadParser {
   isValidLead(lead) {
     const hasContact = lead.email || lead.phone || lead.whatsapp;
     const hasBusiness = lead.businessName || lead.websiteUrl;
-    return hasContact || hasBusiness;
+    
+    // Filter out captcha/blocked pages
+    if (lead.businessName) {
+      const bName = lead.businessName.toLowerCase();
+      if (bName.includes('no results found') || 
+          bName.includes('access denied') || 
+          bName.includes('captcha') ||
+          bName.includes('justdial') || // usually just the homepage
+          bName.includes('security check')) {
+        return false;
+      }
+    }
+
+    return hasContact && hasBusiness;
   }
 }
